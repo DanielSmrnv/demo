@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title> My firs litle site </title>
+    </head>    
+
+ <body>
+
+    <style>
+        button:hover{
+            color: chocolate;
+            background-color: antiquewhite;
+        }
+        *{
+            width: 220px;
+            font-size: 20px;
+        }
+       
+        input:hover.border{
+            border: solid 2px rgb(64, 216, 127);
+        }
+        .width{
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+
+    <h1>Welcum to my demo site!</h1>
+    <p style="text-align:center">log in</p>
+
+    <div id="app">
+        <input class="border width" type="text" v-model="message">
+        <input class="border width" type="password" v-model="password">
+   
+          <button  class="width" v-on:click="cleanMessage">Очистить </button>
+          <button  class="width" v-on:click="saveMessage">Сохранить </button>
+          <ul>
+            <li v-for="item in arr">
+                {{message}}: {{password}}
+            </li>
+          </ul>
+   </div>
+   
+       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+       <script>
+         var app= new Vue({
+         el: '#app',
+         data:{
+           message: '',
+           password: '',
+           arr: []
+       },
+       methods: {
+           cleanMessage: function() {
+               this.message= '';
+               this.password='';
+           },
+           saveMessage: function() {
+            let obj={
+                message: this.message,
+                password: this.password,
+            };
+               arr.push(this.message,this.password);
+               console.log( arr);
+           }
+       },
+    })
+   
+   
+   
+       </script>
+
+
+
+ </body>
+</html>
